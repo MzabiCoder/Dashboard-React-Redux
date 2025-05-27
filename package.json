@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "global": "concurrently \"npm run dev --prefix server \" \"npm run dev --prefix frontend \""
+  },
+  "dependencies": {
+    "brew": "^0.0.8",
+    "concurrently": "^9.1.2"
+  }
+}
