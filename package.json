@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "global": "concurrently \"npm run dev --prefix server \" \"npm run dev --prefix frontend \"",
-    "dep": "concurrently \"npm install --legacy-peer-deps --prefix server\" \"npm install --legacy-peer-deps --prefix frontend \""
+    "server": "npm run dev --prefix server",
+    "build": "npm install --prefix server"
   },
   "dependencies": {
     "brew": "^0.0.8"
