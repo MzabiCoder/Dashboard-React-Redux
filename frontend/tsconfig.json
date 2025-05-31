@@ -22,10 +22,5 @@
   ],
   "include": [
     "src"
-  ],
-  "compilerOptions": {
-    "types": [
-      "node"
-    ]
-  }
+  ]
 }
