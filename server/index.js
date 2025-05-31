@@ -12,7 +12,7 @@ import { kpis, products, transactions } from './data/data.js';
 import Product from './models/Product.js';
 import Transaction from "./models/Transaction.js"
 
-
+//require('dotenv').config()
 /* CONFIGURATIONS */
 dotenv.config();
 const app = express();
