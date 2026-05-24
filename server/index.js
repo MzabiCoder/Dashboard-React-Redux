@@ -4,6 +4,11 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 import KpiRoutes from "./routes/kpi.js"
 import productRoutes from "./routes/products.js"
 import transactionRoutes from "./routes/transaction.js"
@@ -30,6 +35,12 @@ app.use('/kpi', KpiRoutes)
 app.use('/product', productRoutes)
 app.use('/transaction', transactionRoutes)
 
+
+// Serve built frontend (production)
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
 
 // Database connection
 const connectDb = async () => {

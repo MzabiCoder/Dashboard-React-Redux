@@ -35,9 +35,10 @@ const gridTemplateLargeScreens = `
   "d e f"
   "d h i"
   "g h i"
-  "g h j"
-  "g h j"
+  "g h i"
+  "g h i"
 `;
+
 const gridTemplateSmallScreens = `
   "a"
   "a"
@@ -89,14 +90,14 @@ const Dashboard = () => {
             gridAutoRows: '80px',
             gridTemplateAreas: gridTemplateMediumScreens
         } : {
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: '1fr',
             gridAutoRows: '80px',
             gridTemplateAreas: gridTemplateSmallScreens
         }}
-    >   <Row1 />
+    >
+        <Row1 />
         <Row2 />
         <Row3 />
-
     </Box>
 }
 
