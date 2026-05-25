@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
-
+import { motion } from "framer-motion";
 
 export const DashboardBox = styled(Box)(({ theme }) => ({
     backgroundColor: '#0d1f35',
@@ -13,3 +13,10 @@ export const DashboardBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
 }))
+
+export const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+
+export const MotionDashboardBox = motion(DashboardBox)

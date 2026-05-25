@@ -1,4 +1,4 @@
-import { DashboardBox } from "@/components/DashboardBox"
+import { MotionDashboardBox, itemVariants } from "@/components/DashboardBox"
 import { useGetKpisQuery, useGetProducsQuery, useGetTransactionsQuery } from "../../states/api"
 import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridCellParams } from "@mui/x-data-grid";
@@ -91,7 +91,7 @@ const Row3 = () => {
 
     return (
         <>
-            <DashboardBox gridArea="g">
+            <MotionDashboardBox variants={itemVariants} gridArea="g">
                 <BoxHeader title="List of Products" sideText={`${productData?.length} products`} />
                 <Box p="0 0.5rem" sx={{ ...gridSx, flex: 1, minHeight: 0, overflow: 'hidden' }}>
                     <DataGrid
@@ -103,9 +103,9 @@ const Row3 = () => {
                         sx={{ height: '100%' }}
                     />
                 </Box>
-            </DashboardBox>
+            </MotionDashboardBox>
 
-            <DashboardBox gridArea="h">
+            <MotionDashboardBox variants={itemVariants} gridArea="h">
                 <BoxHeader title="Recent Orders" sideText={`${transactionData?.length} latest transactions`} />
                 <Box p="0 0.5rem" sx={{ ...gridSx, flex: 1, minHeight: 0, overflow: 'hidden' }}>
                     <DataGrid
@@ -117,9 +117,9 @@ const Row3 = () => {
                         sx={{ height: '100%' }}
                     />
                 </Box>
-            </DashboardBox>
+            </MotionDashboardBox>
 
-            <DashboardBox gridArea="i">
+            <MotionDashboardBox variants={itemVariants} gridArea="i">
                 <BoxHeader title="Expense Breakdown By Category" sideText="+4%" />
                 <ResponsiveContainer width="100%" height="100%" style={{ flex: 1, minHeight: 0 }}>
                     <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 20 }}>
@@ -154,7 +154,7 @@ const Row3 = () => {
                         />
                     </PieChart>
                 </ResponsiveContainer>
-            </DashboardBox>
+            </MotionDashboardBox>
         </>
     );
 };

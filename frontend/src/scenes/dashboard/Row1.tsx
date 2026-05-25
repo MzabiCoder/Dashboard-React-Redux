@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { DashboardBox } from '@/components/DashboardBox'
+import { MotionDashboardBox, itemVariants } from '@/components/DashboardBox'
 import { useGetKpisQuery } from '../../states/api'
 import { ResponsiveContainer, ComposedChart, Area, BarChart, Bar, CartesianGrid, Line, Legend, Tooltip, YAxis, AreaChart, XAxis } from "recharts"
 import { useTheme } from '@mui/material'
@@ -51,7 +51,7 @@ const Row1 = (props: Props) => {
     const legendStyle = { color: TICK_COLOR, fontSize: '11px' }
 
     return <>
-        <DashboardBox gridArea="b">
+        <MotionDashboardBox variants={itemVariants} gridArea="b">
             <BoxHeader
                 title="Revenue and Expenses"
                 subtitle="top line represents revenue, bottom line represents expenses"
@@ -78,9 +78,9 @@ const Row1 = (props: Props) => {
                     <Area type="monotone" dataKey="expenses" stroke={PINK} strokeWidth={2} fillOpacity={1} fill="url(#colorExpB)" />
                 </AreaChart>
             </ResponsiveContainer>
-        </DashboardBox>
+        </MotionDashboardBox>
 
-        <DashboardBox gridArea="a">
+        <MotionDashboardBox variants={itemVariants} gridArea="a">
             <BoxHeader
                 title="Profit and Revenue"
                 subtitle="top line represents revenue, bottom line represents profit"
@@ -103,9 +103,9 @@ const Row1 = (props: Props) => {
                     <Line type="monotone" dataKey="profit" stroke={PINK} strokeWidth={2} dot={false} />
                 </ComposedChart>
             </ResponsiveContainer>
-        </DashboardBox>
+        </MotionDashboardBox>
 
-        <DashboardBox gridArea="c">
+        <MotionDashboardBox variants={itemVariants} gridArea="c">
             <BoxHeader
                 title="Revenue Month by Month"
                 subtitle="Chart represents the revenue by month"
@@ -127,7 +127,7 @@ const Row1 = (props: Props) => {
                     <Bar dataKey="revenue" fill="url(#colorBarRev)" radius={[4, 4, 0, 0]} />
                 </BarChart>
             </ResponsiveContainer>
-        </DashboardBox>
+        </MotionDashboardBox>
     </>
 }
 

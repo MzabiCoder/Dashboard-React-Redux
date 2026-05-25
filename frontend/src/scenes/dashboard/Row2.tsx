@@ -1,5 +1,5 @@
 import BoxHeader from "@/components/BoxHeader";
-import { DashboardBox } from "@/components/DashboardBox";
+import { MotionDashboardBox, itemVariants } from "@/components/DashboardBox";
 import { FlexBetween } from "@/components/FlexBetween";
 import { useGetKpisQuery, useGetProducsQuery } from "../../states/api";
 import { Box, Typography, useTheme } from "@mui/material";
@@ -59,7 +59,7 @@ const Row2 = () => {
 
     return (
         <>
-            <DashboardBox gridArea="d">
+            <MotionDashboardBox variants={itemVariants} gridArea="d">
                 <BoxHeader title="Operational vs Non-Operational Expenses" sideText="+4%" />
                 <ResponsiveContainer width="100%" height="100%" style={{ flex: 1, minHeight: 0 }}>
                     <LineChart data={operationalExpenses} margin={{ top: 20, right: 0, left: -10, bottom: 55 }}>
@@ -72,9 +72,9 @@ const Row2 = () => {
                         <Line yAxisId="right" type="monotone" dataKey="Operational Expenses" stroke={TEAL} strokeWidth={2} dot={false} />
                     </LineChart>
                 </ResponsiveContainer>
-            </DashboardBox>
+            </MotionDashboardBox>
 
-            <DashboardBox gridArea="e">
+            <MotionDashboardBox variants={itemVariants} gridArea="e">
                 <BoxHeader title="Campaigns and Targets" sideText="+4%" />
                 <FlexBetween mt="0.25rem" gap="1.5rem" pr="1rem" sx={{ flex: 1, overflow: 'hidden' }}>
                     <FlexBetween ml={3} mt={2} flexBasis="30%">
@@ -99,9 +99,9 @@ const Row2 = () => {
                         <Typography variant="h6">Margins are up by 30% from last month.</Typography>
                     </Box>
                 </FlexBetween>
-            </DashboardBox>
+            </MotionDashboardBox>
 
-            <DashboardBox gridArea="f">
+            <MotionDashboardBox variants={itemVariants} gridArea="f">
                 <BoxHeader title="Product Prices vs Expenses" sideText="+4%" />
                 <ResponsiveContainer width="100%" height="100%" style={{ flex: 1, minHeight: 0 }}>
                     <ScatterChart margin={{ top: 20, right: 25, bottom: 40, left: -10 }}>
@@ -113,7 +113,7 @@ const Row2 = () => {
                         <Scatter name="Product Expense Ratio" data={productExpenseData} fill={TEAL} />
                     </ScatterChart>
                 </ResponsiveContainer>
-            </DashboardBox>
+            </MotionDashboardBox>
         </>
     );
 };

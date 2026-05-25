@@ -1,7 +1,15 @@
 import { Box, useMediaQuery } from "@mui/material"
+import { motion } from "framer-motion"
 import Row1 from "./Row1"
 import Row2 from "./Row2"
 import Row3 from "./Row3"
+
+const MotionBox = motion(Box)
+
+const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.09 } },
+}
 
 const gridTemplateMediumScreens = `
   "a b"
@@ -68,14 +76,17 @@ const gridTemplateSmallScreens = `
   "h"
   "i"
   "i"
-  "j"
-  "j"
+  "i"
+  "i"
 `;
 
 const Dashboard = () => {
     const isAboveMediumScreens = useMediaQuery("(min-width:1100px)")
     const isAboveMediumMScreens = useMediaQuery("(min-width:750px)")
-    return <Box
+    return <MotionBox
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         width='100%'
         height='100%'
         display='grid'
@@ -98,7 +109,7 @@ const Dashboard = () => {
         <Row1 />
         <Row2 />
         <Row3 />
-    </Box>
+    </MotionBox>
 }
 
 export default Dashboard
