@@ -7,7 +7,7 @@ export const api = createApi({
     tagTypes: ["Kpis", "Products", "Transactions"],
     endpoints: (build) => ({
         getKpis: build.query<Array<GetKpisResponse>, void>({
-            query: () => "Kpi/kpis",
+            query: () => "kpi/kpis",
             providesTags: ["Kpis"],
         }),
         getProducs: build.query<Array<GetProductsResponse>, void>({
@@ -21,5 +21,4 @@ export const api = createApi({
     }),
 });
 
-export const { useGetKpisQuery, useGetProducsQuery, useGetTransactionsQuery } = api
-api;
+export const { useGetKpisQuery, useGetProducsQuery, useGetTransactionsQuery } = api;
