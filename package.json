@@ -5,6 +5,7 @@
     "buildServer": "cd server && npm install",
     "buildClient": "cd frontend && npm install --legacy-peer-deps",
     "globalDev": "npm run server & npm run client",
+    "clientBuild": "cd frontend && npm run build",
     "globalBuild": "npm run buildClient && npm run buildServer"
   },
   "dependencies": {
