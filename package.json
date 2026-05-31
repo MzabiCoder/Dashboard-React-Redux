@@ -4,11 +4,14 @@
     "server": "npm run dev --prefix server",
     "buildServer": "cd server && npm install",
     "buildClient": "cd frontend && npm install --legacy-peer-deps",
-    "globalDev": "npm run server & npm run client",
-    "clientBuild": "cd frontend && npm run build",
+    "globalDev": "concurrently \"npm run server\" \"npm run client\"",
+    "clientBuild": "npm run build --prefix frontend",
     "globalBuild": "npm run buildClient && npm run buildServer"
   },
   "dependencies": {
     "brew": "^0.0.8"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.0"
   }
 }
