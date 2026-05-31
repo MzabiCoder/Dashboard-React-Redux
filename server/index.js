@@ -7,7 +7,8 @@ import mongoose from 'mongoose';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+//const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = path.resolve()
 
 import KpiRoutes from "./routes/kpi.js"
 import productRoutes from "./routes/products.js"
@@ -37,10 +38,18 @@ app.use('/transaction', transactionRoutes)
 
 
 // Serve built frontend (production)
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-});
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../frontend/dist')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'));
+    });
+
+} else {
+    app.use('/', (req, res) => {
+        res.send('API is running....')
+    })
+}
 
 // Database connection
 const connectDb = async () => {
