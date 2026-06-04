@@ -1,4 +1,4 @@
-import { FlexBetween } from "./FlexBetWeen"
+import { FlexBetWeen } from "./FlexBetWeen"
 import { Box, Typography, useTheme } from "@mui/material"
 
 
@@ -12,8 +12,8 @@ type Props = {
 const BoxHeader = ({ icon, title, subtitle, sideText }: Props) => {
     const { palette } = useTheme()
     return (
-        <FlexBetween color={palette.grey[400]} margin="1.5rem 1rem 0 1rem">
-            <FlexBetween>
+        <FlexBetWeen color={palette.grey[400]} margin="1.5rem 1rem 0 1rem">
+            <FlexBetWeen>
                 {icon}
                 <Box width="100%">
                     <Typography variant="h4" mb=".1rem">
@@ -23,11 +23,11 @@ const BoxHeader = ({ icon, title, subtitle, sideText }: Props) => {
                         {subtitle}
                     </Typography>
                 </Box>
-            </FlexBetween>
+            </FlexBetWeen>
             <Typography variant="h5" fontWeight="700" color={palette.primary[300]}>
                 {sideText}
             </Typography>
-        </FlexBetween>
+        </FlexBetWeen>
     )
 }
 

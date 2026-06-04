@@ -1,6 +1,6 @@
 import BoxHeader from "@/components/BoxHeader";
 import { MotionDashboardBox, itemVariants } from "@/components/DashboardBox";
-import { FlexBetween } from "@/components/FlexBetween";
+import { FlexBetween } from "@/components/FlexBetWeen";
 import { useGetKpisQuery, useGetProducsQuery } from "../../states/api";
 import { Box, Typography, useTheme } from "@mui/material";
 import React, { useMemo } from "react";
