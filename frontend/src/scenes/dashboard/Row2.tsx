@@ -1,6 +1,6 @@
 import BoxHeader from "@/components/BoxHeader";
 import { MotionDashboardBox, itemVariants } from "@/components/DashboardBox";
-import { FlexBetween } from "@/components/FlexBetWeen";
+import { FlexBetWeen } from "@/components/FlexBetWeen";
 import { useGetKpisQuery, useGetProducsQuery } from "../../states/api";
 import { Box, Typography, useTheme } from "@mui/material";
 import React, { useMemo } from "react";
@@ -76,8 +76,8 @@ const Row2 = () => {
 
             <MotionDashboardBox variants={itemVariants} gridArea="e">
                 <BoxHeader title="Campaigns and Targets" sideText="+4%" />
-                <FlexBetween mt="0.25rem" gap="1.5rem" pr="1rem" sx={{ flex: 1, overflow: 'hidden' }}>
-                    <FlexBetween ml={3} mt={2} flexBasis="30%">
+                <FlexBetWeen mt="0.25rem" gap="1.5rem" pr="1rem" sx={{ flex: 1, overflow: 'hidden' }}>
+                    <FlexBetWeen ml={3} mt={2} flexBasis="30%">
                         <PieChart width={200} height={200}>
                             <Pie dataKey="value" data={pieData} cx="50%" cy="50%" outerRadius={80} label>
                                 {pieData.map((entry, index) => (
@@ -86,7 +86,7 @@ const Row2 = () => {
                             </Pie>
                             <Tooltip contentStyle={tooltipStyle} />
                         </PieChart>
-                    </FlexBetween>
+                    </FlexBetWeen>
                     <Box ml="-0.7rem" flexBasis="30%" textAlign="center" alignContent="center" alignItems="center">
                         <Typography variant="h5">Target Sales</Typography>
                         <Typography m="0.3rem 0" variant="h3" color={TEAL}>83</Typography>
@@ -98,7 +98,7 @@ const Row2 = () => {
                         <Typography mt="0.4rem" variant="h5">Profit Margins</Typography>
                         <Typography variant="h6">Margins are up by 30% from last month.</Typography>
                     </Box>
-                </FlexBetween>
+                </FlexBetWeen>
             </MotionDashboardBox>
 
             <MotionDashboardBox variants={itemVariants} gridArea="f">
