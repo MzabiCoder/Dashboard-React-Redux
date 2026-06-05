@@ -3,7 +3,9 @@ import KPI from "../models/KPI.js"
 
 const router = express.Router();
 
-router.get('/kpis', async (req, res) => {
+const API = import.meta.env.VITE_API_URL || "/kpis";
+
+router.get(API, async (req, res) => {
     try {
         const kpis = await KPI.find()
         res.status(200).json(kpis)

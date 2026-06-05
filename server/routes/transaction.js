@@ -3,7 +3,9 @@ import Transaction from "../models/Transaction.js"
 
 const router = express.Router();
 
-router.get('/transactions', async (req, res) => {
+const API = import.meta.env.VITE_API_URL || '/transactions';
+
+router.get(API, async (req, res) => {
     try {
         const transactions = await Transaction.find()
             .limit(50)
