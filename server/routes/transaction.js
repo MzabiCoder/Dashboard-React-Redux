@@ -5,7 +5,7 @@ const router = express.Router();
 
 const API = import.meta.env.VITE_API_URL || '/transactions';
 
-router.get(API, async (req, res) => {
+router.get('/transactions', async (req, res) => {
     try {
         const transactions = await Transaction.find()
             .limit(50)

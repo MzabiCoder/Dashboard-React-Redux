@@ -5,7 +5,7 @@ const router = express.Router();
 
 const API = import.meta.env.VITE_API_URL || "/kpis";
 
-router.get(API, async (req, res) => {
+router.get('/kpis', async (req, res) => {
     try {
         const kpis = await KPI.find()
         res.status(200).json(kpis)
