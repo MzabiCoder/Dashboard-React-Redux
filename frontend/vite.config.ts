@@ -4,8 +4,13 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+    build: {
+    chunkSizeWarningLimit: 1000, // increase limit to 1000 kB
+  },
   plugins: [react()],
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
   },
 })
+
+ 
