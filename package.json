@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "22.x"
+     "node": "24.x"
   },
   "scripts": {
     "client": "npm run dev --prefix frontend",
@@ -9,7 +9,9 @@
     "buildClient": "cd frontend && npm install --legacy-peer-deps",
     "globalDev": "concurrently \"npm run server\" \"npm run client\"",
     "clientBuild": "npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend",
-    "globalBuild": "npm run buildClient && npm run buildServer"
+    // "globalBuild": "npm run buildClient && npm run buildServer"
+    "globalBuild": "npm run clientBuild && npm run buildServer"
+
   },
   "dependencies": {
     "brew": "^0.0.8"
