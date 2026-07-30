@@ -57,14 +57,15 @@ const connectDb = async () => {
         await mongoose.connect(process.env.MONGO_URL);
         app.listen(PORT, console.log(`Server Port ${PORT}`));
 
-        // before seeding the data, we first drop the existing database 
-        // so we dont have any duplicates in our collections
-
-        await mongoose.connection.db.dropDatabase();
-
-        KPI.insertMany(kpis);
-        Product.insertMany(products)
-        Transaction.insertMany(transactions)
+        // Only seed data if the database is empty (avoids wiping data on every restart)
+        const kpiCount = await KPI.countDocuments();
+        if (kpiCount === 0) {
+            await mongoose.connection.db.dropDatabase();
+            await KPI.insertMany(kpis);
+            await Product.insertMany(products);
+            await Transaction.insertMany(transactions);
+            console.log('Database seeded successfully');
+        }
     } catch (error) {
         console.log(error.message)
     }
