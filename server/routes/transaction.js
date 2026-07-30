@@ -3,8 +3,6 @@ import Transaction from "../models/Transaction.js"
 
 const router = express.Router();
 
-const API = import.meta.env.VITE_API_URL || '/transactions';
-
 router.get('/transactions', async (req, res) => {
     try {
         const transactions = await Transaction.find()
